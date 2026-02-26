@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary: #ff1a1a;
+    /* Crimson Red */
+    --secondary: #ffd700;
+    /* Gold */
+    --bg: #0a0000;
+    /* Dark Red/Black bg */
+    --panel-bg: rgba(20, 0, 0, 0.85);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--bg);
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+    color: white;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center bottom;
+    z-index: -5;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Video Background / GIF */
+#bg-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -10;
+    opacity: 0.85;
+    /* Blend well with CSS themes */
+}
+
+/* Nav Bar */
+header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+}
+
+.logo a {
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--primary);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--secondary);
+}
+
+/* Main layout */
+.leaderboard-container {
+    padding-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Leaderboard Specifics */
+.table-container {
+    width: 90%;
+    max-width: 800px;
+    background: var(--panel-bg);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 20px rgba(255, 26, 26, 0.2), inset 0 0 20px rgba(255, 26, 26, 0.1);
+    padding: 2rem;
+    position: relative;
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+.table-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.pixel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+.pixel-table th,
+.pixel-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 26, 26, 0.3);
+}
+
+.pixel-table th {
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+.pixel-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pixel-table tbody tr:hover {
+    background-color: rgba(255, 26, 26, 0.15);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    color: var(--secondary);
+}
+
+/* Status colors overwritten by script.js but we can add defaults */
+.status-alive {
+    color: var(--secondary);
+    text-shadow: 0 0 5px var(--secondary);
+}
+
+.status-dead {
+    color: #444;
+    text-decoration: line-through;
+}
+
+/* Animation */
+.scroll-anim {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-anim.show {
+    opacity: 1;
+    transform: translateY(0);
+}

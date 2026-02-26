@@ -1,17 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Neon Pixel Trials Initialized.");
 
-    // --- Preloader ---
-    window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-        if (preloader) {
-            // ensure loading animation goes to 100% before fading out
+    // --- Enter Screen / Game Start ---
+    const enterScreen = document.getElementById("enter-screen");
+    const uiLayer = document.getElementById("ui-layer");
+    const btnStart = document.getElementById("btn-start");
+    let hasStarted = false;
+
+    const startGame = () => {
+        if (hasStarted) return;
+        hasStarted = true;
+
+        if (enterScreen) {
+            enterScreen.style.opacity = "0";
             setTimeout(() => {
-                preloader.style.opacity = "0";
-                preloader.style.visibility = "hidden";
-            }, 1500); // 1.5s artificial delay for effect
+                enterScreen.style.visibility = "hidden";
+            }, 1000);
         }
-    });
+
+        if (uiLayer) {
+            uiLayer.style.display = "block";
+            setTimeout(() => {
+                uiLayer.style.opacity = "1";
+            }, 50); // small delay to allow display flex to apply before transitioning opacity
+        }
+    };
+
+    // Listen for Start Button click
+    if (btnStart) {
+        btnStart.addEventListener("click", startGame);
+    }
 
     // --- Scroll Animations (Intersection Observer) ---
     const observerOptions = {

@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary: #00ff00;
+    /* Toxic Green */
+    --bg: #030a03;
+    /* Very dark green/black bg */
+    --panel-bg: rgba(0, 15, 0, 0.85);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--bg);
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+    color: white;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center bottom;
+    z-index: -5;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Video Background / GIF */
+#bg-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -10;
+    opacity: 0.85;
+    /* Blend well with CSS themes */
+}
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Nav Bar */
+header {
+    background-color: rgba(5, 10, 5, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 2px solid var(--primary);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+}
+
+.logo a {
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--primary);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+}
+
+/* Main layout */
+.register-container {
+    padding-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Form Styling */
+.form-wrapper {
+    background: var(--panel-bg);
+    padding: 3rem;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1), inset 0 0 20px rgba(0, 255, 0, 0.05);
+    position: relative;
+    clip-path: polygon(0% 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0% 95%);
+}
+
+.form-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    opacity: 0.5;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.form-group input:not([type="checkbox"]) {
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    color: var(--primary);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:not([type="checkbox"]):focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    margin-top: 5px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 0.8rem;
+    color: #888;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.error-msg {
+    color: #ff3333;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    min-height: 1.2em;
+}
+
+/* Button */
+.btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary);
+}
+
+.success-msg {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 255, 0, 0.1);
+    border-left: 4px solid var(--primary);
+    color: var(--primary);
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    animation: flash 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes flash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}

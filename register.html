@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Arena - Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+    <!-- Immersive GIF Background -->
+    <img id="bg-gif" src="ezgif-652720b06abcebc8.gif" alt="Animated Background" />
+
+    <!-- Retro Scanline Effect Overlay -->
+    <div class="crt-overlay"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html" class="logo-text">NEON ARENA</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Start</a></li>
+                <li><a href="games.html">The Trials</a></li>
+                <li><a href="leaderboard.html">Rankings</a></li>
+                <li><a href="register.html" class="active">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="register-container">
+        <div class="form-wrapper glass-panel scroll-anim show">
+            <h2 class="section-title text-center">CONTRACT INITIALIZATION</h2>
+            <form id="registration-form" novalidate>
+                <div class="form-group">
+                    <label for="username">Player ID</label>
+                    <input type="text" id="username" name="username" placeholder="Enter Cyber-Alias" autocomplete="off">
+                    <span class="error-msg" id="username-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Comms Channel</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Secure Email" autocomplete="off">
+                    <span class="error-msg" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age Verification</label>
+                    <input type="number" id="age" name="age" placeholder="Min 18 for entry" min="18" max="99">
+                    <span class="error-msg" id="age-error"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I accept the deadly risks of the neon trials. No turning back.</label>
+                    <span class="error-msg" id="terms-error"></span>
+                </div>
+
+                <button type="submit" class="btn submit-btn w-full">INITIATE SEQUENCE</button>
+
+                <div id="form-success" class="success-msg hidden">
+                    <p>ACCESS GRANTED.</p>
+                    <p>WELCOME TO THE ARENA.</p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

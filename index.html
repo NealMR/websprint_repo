@@ -4,158 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Pixel Trials</title>
-    <meta name="description" content="A high-stakes pixel art survival game webs experience.">
+    <title>Neon Arena - Enter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader-text glitch-text" data-text="LOADING...">LOADING...</div>
-        <div class="loader-bar">
-            <div class="loader-fill"></div>
-        </div>
-    </div>
+    <!-- Immersive GIF Background -->
+    <img id="bg-gif" src="ezgif-652720b06abcebc8.gif" alt="Animated Background" />
 
     <!-- Retro Scanline Effect Overlay -->
     <div class="crt-overlay"></div>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo"><a href="#">NEON TRIALS</a></div>
-            <ul class="nav-links">
-                <li><a href="#hero">Start</a></li>
-                <li><a href="#games">The Trials</a></li>
-                <li><a href="#leaderboard">Rankings</a></li>
-                <li><a href="#register">Register</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Welcome / Enter Screen -->
+    <div id="enter-screen" class="enter-screen">
+        <div class="logo-container">
+            <h1 class="chrome-text" data-text="NEON ARENA">NEON ARENA</h1>
+            <h2 class="script-text">Neon Blast</h2>
+        </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1 class="glitch-text" data-text="SURVIVE THE TRIALS">SURVIVE THE TRIALS</h1>
-                <p class="subtitle">Only the strongest will see the final pixel.</p>
-                <a href="#register" class="btn primary-btn">JOIN NOW</a>
-            </div>
-        </section>
-
-        <!-- Games Section -->
-        <section id="games" class="games-section">
-            <h2 class="section-title text-center scroll-anim">Select Your Fate</h2>
-            <div class="game-grid">
-                <!-- Game 1 -->
-                <div class="game-card scroll-anim" style="transition-delay: 100ms;">
-                    <div class="card-image bg-laser"></div>
-                    <div class="card-content">
-                        <h3>Statue's Gaze</h3>
-                        <p>Move only when the doll isn't looking. Pixel-perfect timing is required.</p>
-                        <button class="btn info-btn">View Stats</button>
-                    </div>
-                </div>
-                <!-- Game 2 -->
-                <div class="game-card scroll-anim" style="transition-delay: 200ms;">
-                    <div class="card-image bg-pit"></div>
-                    <div class="card-content">
-                        <h3>Sugar Carvers</h3>
-                        <p>Extract the ◯, △, or ◻ shape perfectly before the timer runs out...</p>
-                        <button class="btn info-btn">View Stats</button>
-                    </div>
-                </div>
-                <!-- Game 3 -->
-                <div class="game-card scroll-anim" style="transition-delay: 300ms;">
-                    <div class="card-image bg-maze"></div>
-                    <div class="card-content">
-                        <h3>Midnight Brawl</h3>
-                        <p>When the lights go out, alliances crumble. Survive the night.</p>
-                        <button class="btn info-btn">View Stats</button>
-                    </div>
-                </div>
-                <!-- Game 4 -->
-                <div class="game-card scroll-anim" style="transition-delay: 400ms;">
-                    <div class="card-image bg-sprint"></div>
-                    <div class="card-content">
-                        <h3>Glass Abyss</h3>
-                        <p>Choose your stepping stones wisely. The drop is a long way down.</p>
-                        <button class="btn info-btn">View Stats</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leaderboard Section -->
-        <section id="leaderboard" class="leaderboard-section text-center scroll-anim">
-            <h2 class="section-title">Top Survivors</h2>
-            <div class="table-container">
-                <table class="pixel-table">
-                    <thead>
-                        <tr>
-                            <th>RANK</th>
-                            <th>PLAYER ID</th>
-                            <th>SCORE</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body">
-                        <!-- Filled by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Registration Section -->
-        <section id="register" class="register-section scroll-anim">
-            <div class="form-wrapper">
-                <h2 class="section-title text-center">Player Registration</h2>
-                <form id="registration-form" novalidate>
-                    <div class="form-group">
-                        <label for="username">Player ID</label>
-                        <input type="text" id="username" name="username" placeholder="Enter PixelID" autocomplete="off">
-                        <span class="error-msg" id="username-error"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Comms Channel</label>
-                        <input type="email" id="email" name="email" placeholder="Enter Email" autocomplete="off">
-                        <span class="error-msg" id="email-error"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="age">Age Integrity</label>
-                        <input type="number" id="age" name="age" placeholder="Min 18" min="18" max="99">
-                        <span class="error-msg" id="age-error"></span>
-                    </div>
-
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="terms" name="terms">
-                        <label for="terms">I accept the deadly risks of the neon trials.</label>
-                        <span class="error-msg" id="terms-error"></span>
-                    </div>
-
-                    <button type="submit" class="btn submit-btn w-full">SIGN CONTRACT</button>
-
-                    <div id="form-success" class="success-msg hidden">
-                        <p>Registration Confirmed.</p>
-                        <p>Prepare Yourself...</p>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Neon Pixel Trials. All pixels reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+        <div class="menu-options container">
+            <a href="games.html" id="btn-start" class="neon-btn"
+                style="animation: introText 1s forwards; opacity: 0; animation-delay: 1s;">
+                <span class="span"></span>
+                <span class="txt">START</span>
+            </a>
+            <a href="leaderboard.html" class="neon-btn"
+                style="animation: introText 1s forwards; opacity: 0; animation-delay: 1.2s;">
+                <span class="span"></span>
+                <span class="txt">TOP SURVIVORS</span>
+            </a>
+            <a href="register.html" class="neon-btn"
+                style="animation: introText 1s forwards; opacity: 0; animation-delay: 1.4s;">
+                <span class="span"></span>
+                <span class="txt">REGISTRATION</span>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
